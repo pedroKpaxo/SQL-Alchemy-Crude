@@ -28,9 +28,6 @@ class Controller():
         self.Model = Model
         self.View = View
 
-        # - List to control the quantity of QV
-        self.QV_Window_List = []
-
     #################
 
     def Run_App(self):
@@ -56,10 +53,25 @@ class Controller():
         '''
         t= self.View.entry1.e1.get()
         data = {"TASK":t}
+        # - Send the data to the database
         self.Model.create(data)
+        # - Clears the main treeview
         self.Clear_Tree(self.View.Tree.Tree)
+        # - Updates the treeview
         self.updateTree()
+        # - Clears the entry
         self.View.entry1.clear()
+
+
+    def updaterecord(self,*args,**kargs):
+        '''
+        Function for updating an given record
+        '''
+        # select the model
+        
+        v = self.View.Tree.Tree.item(self.View.Tree.Tree.focus(),'values')
+
+        print(v[0])
    
     def updateTree(self):
         '''
@@ -79,4 +91,8 @@ class Controller():
         self.View.Tree.TreeInsert(data)
 
     def Clear_Tree(self,tree:ttk.Treeview):
+        '''
+        Function to clear a given Treeview
+        '''
         tree.delete(*tree.get_children())
+

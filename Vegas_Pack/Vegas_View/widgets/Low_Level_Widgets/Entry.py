@@ -15,8 +15,11 @@ class EntrySimple(ttk.Frame):
         
         self.BTN_send = ttk.Button(self,text='Send',)
         self.BTN_send.grid(row=0,column=2,rowspan=2,sticky=NSEW,)
+        self.BTN_Delete = ttk.Button(self,text='delete task',)
+        self.BTN_Delete.grid(row=2,column=0,columnspan=3,sticky=NSEW,)
+
         
-        self.pack
+        
 
     def clear(self):
         '''

@@ -10,7 +10,7 @@ from .widgets.Low_Level_Widgets.Entry import EntrySimple
 
 class App:
     '''
-    The main view controller class.
+    The main view  class.
 
     It Packs all things related to the App Running,
         including the main tk.Tk module.
@@ -34,6 +34,7 @@ class App:
         self.MASTER_VEGAS.option_add('*tearOff', FALSE)
         self.MASTER_VEGAS.title('TODO APP')
         self.MASTER_VEGAS.geometry('800x700')
+        self.paddings = {'padx': 5, 'pady': 5}
 
         ###########################
         # - Start a Menu Bar
@@ -64,9 +65,11 @@ class App:
         '''
         self.entry1 = EntrySimple(self.MASTER_VEGAS)
         self.entry1.BTN_send.bind('<Button>',self.Controller.send)
-        self.entry1.pack()
+        self.entry1.grid(column=1,row=1,sticky='nsew',**self.paddings)
+        self.entry1.configure(width=400)
         self.Tree = MainTree(self.MASTER_VEGAS)
-        self.Tree.pack()
+        self.Tree.Tree.bind('<Double-Button-1>',self.Controller.updaterecord)
+        self.Tree.grid(column=2,row=1,sticky='nsew',**self.paddings)
         
         
     
