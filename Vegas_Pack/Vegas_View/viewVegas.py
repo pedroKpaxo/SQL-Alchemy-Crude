@@ -68,7 +68,7 @@ class App:
         self.entry1.grid(column=1,row=1,sticky='nsew',**self.paddings)
         self.entry1.configure(width=400)
         self.Tree = MainTree(self.MASTER_VEGAS)
-        self.Tree.Tree.bind('<Double-Button-1>',self.Controller.updaterecord)
+        self.Tree.Tree.bind('<Double-Button-1>',self.Controller.deleterecord)
         self.Tree.grid(column=2,row=1,sticky='nsew',**self.paddings)
         
         

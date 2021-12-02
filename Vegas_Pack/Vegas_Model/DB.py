@@ -24,10 +24,23 @@ class DataBase:
         '''
         
         t = TODO(task=data['TASK'])
+        print(type(t))
+        y = isinstance(t,TODO)
+        print(y)
         self.session.add(t)
         self.session.commit()
 
-
+    def queryName(self,task:str,*args):
+        q = self.session.query(TODO).filter(TODO.task == task).first()
+        print('_________________')
+        y = isinstance(q,TODO)
+        print(y)
+        print('_________________')
+        print(q)
+        print(type(q))
+        self.session.delete(q)
+        self.session.commit()
+        
     @property
     def query(self)->list[TODO]:
         query = self.session.query(TODO)

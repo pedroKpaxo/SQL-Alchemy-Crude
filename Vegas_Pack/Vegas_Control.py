@@ -63,15 +63,16 @@ class Controller():
         self.View.entry1.clear()
 
 
-    def updaterecord(self,*args,**kargs):
+    def deleterecord(self,*args,**kargs):
         '''
         Function for updating an given record
         '''
         # select the model
-        
         v = self.View.Tree.Tree.item(self.View.Tree.Tree.focus(),'values')
+        self.Model.queryName(f'{v[0]}')
+        self.updateTree()
 
-        print(v[0])
+        #print(v[0])
    
     def updateTree(self):
         '''
